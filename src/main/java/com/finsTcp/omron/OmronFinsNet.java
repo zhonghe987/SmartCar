@@ -23,7 +23,7 @@ public class OmronFinsNet extends NetworkDeviceBase<FinsMessage, ReverseWordTran
         setIpAddress(ipAddress);
         setPort(port);
     }
-
+    public boolean closed = false;
 
     public byte ICF = (byte) 0x80;
 
@@ -50,6 +50,14 @@ public class OmronFinsNet extends NetworkDeviceBase<FinsMessage, ReverseWordTran
 
     public byte getSA1() {
         return computerSA1;
+    }
+
+    public void setClosed(boolean flag){
+        this.closed = flag;
+    }
+
+    public boolean getClosed(){
+        return this.closed;
     }
 
 

@@ -1,6 +1,6 @@
 package com;
 
-
+import java.lang.Integer;
 import java.lang.String;
 import java.lang.System;
 import java.io.InputStream;
@@ -48,6 +48,7 @@ public class Service {
 
     public static void main(String[] args) throws Exception {
         init();
+        System.out.print(Integer.parseInt("20", 16));
         Server server = new Server(8282); // 监听8282端口
         ServletHolder servlet = new ServletHolder(ServletContainer.class);
         // 设置初始化参数
