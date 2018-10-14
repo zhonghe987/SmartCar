@@ -18,7 +18,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 
 import static org.eclipse.jetty.servlet.ServletContextHandler.NO_SESSIONS;
-
+import com.finsTcp.SocketPool;
 
 
 public class Service {
@@ -48,6 +48,8 @@ public class Service {
 
     public static void main(String[] args) throws Exception {
         init();
+        SocketPool sp = new SocketPool(prop);
+        sp.init(true);
         System.out.print(Integer.parseInt("20", 16));
         Server server = new Server(8282); // 监听8282端口
         ServletHolder servlet = new ServletHolder(ServletContainer.class);

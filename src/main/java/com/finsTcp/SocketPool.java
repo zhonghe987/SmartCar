@@ -5,6 +5,9 @@ import java.lang.String;
 import java.util.Properties;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.finsTcp.omron.*;
 import com.finsTcp.core.types.*;
@@ -13,13 +16,11 @@ import com.finsTcp.core.types.*;
 public class SocketPool{
 
     private Properties prop;
-    private LinkedBlockingQueue<OmronFinsNet> socketPools; 
     private int Max_num_worker;
-
+    public static ConcurrentHashMap<Integer, OmronFinsNet> socketMap = new ConcurrentHashMap<Integer, OmronFinsNet>();
     public SocketPool(Properties pros){
         this.prop = pros;
     }
-
 
     public static String IntToHex(int n){
         char[] ch = new char[20];
@@ -58,19 +59,27 @@ public class SocketPool{
         return 0;
     }
 
-    public void init(){
+    public void init(boolean isAll){
         this.Max_num_worker = Integer.parseInt(this.prop.getProperty("max_worker"));
-        this.socketPools = new LinkedBlockingQueue<OmronFinsNet>(Max_num_worker);
-        for (int num = 0;num <Max_num_worker; num ++){
-            OmronFinsNet client  = this.connect();
-            if (client != null){
-                socketPools.offer(client);
-            }
-        }
+        for (int i = 0; i < this.Max_num_worker; i++) {
+            if(isAll){
+                OmronFinsNet client  = this.connect(i, false, true);
+                if (client != null){
+                    socketMap.put(i, client);
+                }
+            }else{
+                if(socketMap.get(i) == null || socketMap.get(i).getClosed()){
+                    OmronFinsNet client  = this.connect(i, false, true);
+                    if (client != null){
+                        socketMap.put(i, client);
+                    }
+                }	
+            }					
+		}
     }
 
-    public OmronFinsNet connect(){
-        OmronFinsNet ofins =null;
+    public OmronFinsNet connect(Integer id, boolean closed, boolean free){
+        OmronFinsNet ofins = null;
         ofins = new OmronFinsNet(this.prop.getProperty("plc_address"),
                                             Integer.parseInt(this.prop.getProperty("plc_port").toString()));
         int sna  = Integer.parseInt(this.prop.getProperty("pc_sna").toString());
@@ -83,9 +92,13 @@ public class SocketPool{
         //int da2 = Integer.parseInt(prop.getProperty("plc_da2").toString());
         
         ofins.DA2 = 0x00;//0x00; // PLC单元号，通常为0
+
+        ofins.setId(id);
+        ofins.setClosed(closed);
+        ofins.setFreed(free);
         try {
-            OperateResult connect = ofins.ConnectServer();
-            if (connect.IsSuccess) {
+            OperateResult socketConnect = ofins.ConnectServer();
+            if (socketConnect.IsSuccess) {
                 System.out.println("连接成功！" );
                 return ofins;
             }
@@ -95,23 +108,36 @@ public class SocketPool{
         return ofins;
     }
 
-    public OmronFinsNet getClient() throws InterruptedException{
-        if(socketPools.size()==0){
-            synchronized (socketPools) {
-                int freeConnCount = socketPools.size();
-                if(freeConnCount == 0 && freeConnCount < Max_num_worker){
-                    OmronFinsNet client = this.connect();
-                return client;
+    public OmronFinsNet getClient(){
+        OmronFinsNet client = null;
+        if (socketMap.size() < this.Max_num_worker ){
+            this.init(false);
+        }
+        if(socketMap.size() > 0){
+            for (Map.Entry<Integer, OmronFinsNet> entry : socketMap.entrySet()) {
+				client = entry.getValue();
+				if(client.getFreed() && ! client.getClosed()){
+					client.setFreed(false);
+                    return client;
                 }
             }
         }
-        OmronFinsNet client = socketPools.poll(2000,TimeUnit.MILLISECONDS);
+        client = this.connect(-1, false, true);
         return client;
     }
     
-    public void freeConnection(OmronFinsNet client) throws InterruptedException{
-        if(null != client && !client.getClosed()){
-            socketPools.offer(client);
+    public void distoryClient(int socketId){
+		OmronFinsNet client = socketMap.get(socketId);
+		client.setFreed(true);
+    }
+
+    public void freeConnection(OmronFinsNet client){
+        if(client == null){
+            return;
+        }
+		if( !client.getClosed()){
+            this.distoryClient(client.getId());
+            return;
         }
     }
 }

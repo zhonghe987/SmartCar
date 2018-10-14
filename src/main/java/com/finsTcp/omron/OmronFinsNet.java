@@ -23,7 +23,11 @@ public class OmronFinsNet extends NetworkDeviceBase<FinsMessage, ReverseWordTran
         setIpAddress(ipAddress);
         setPort(port);
     }
-    public boolean closed = false;
+    public boolean isClosed;
+
+    public int id;
+
+    public boolean isFree;
 
     public byte ICF = (byte) 0x80;
 
@@ -53,14 +57,28 @@ public class OmronFinsNet extends NetworkDeviceBase<FinsMessage, ReverseWordTran
     }
 
     public void setClosed(boolean flag){
-        this.closed = flag;
+        this.isClosed = flag;
     }
 
     public boolean getClosed(){
-        return this.closed;
+        return this.isClosed;
     }
 
+    public void setFreed(boolean free){
+        this.isFree = free;
+    }
 
+    public boolean getFreed(){
+        return this.isFree;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public int getId(){
+        return this.id;
+    }
     public void setSA1(byte computerSA1) {
         this.computerSA1 = computerSA1;
         handSingle[19] = computerSA1;
