@@ -9,7 +9,6 @@ com\FinsTCP\omron\OmronFinsDataType.class
 com\FinsTCP\core\SoftBasic.class
 com\FinsTCP\core\types\FunctionOperateExOne.class
 com\FinsTCP\SocketPoolConfig.class
-com\log\ILogNet.class
 com\FinsTCP\core\net\NetworkDeviceBase.class
 com\FinsTCP\core\net\FinsMessage.class
 com\FinsTCP\core\transfer\ByteTransformHelper$7.class
@@ -19,15 +18,12 @@ com\api\deserializer\CarInfoDeserializer.class
 com\FinsTCP\core\transfer\ByteTransformHelper$5.class
 com\FinsTCP\Pool.class
 com\FinsTCP\SocketClientFactory.class
-com\log\HslMessageItem.class
 com\api\model\CarInfo.class
 com\FinsTCP\language\DefaultLanguage.class
-com\log\GenerateMode.class
 com\FinsTCP\Utilities.class
 com\FinsTCP\core\transfer\ByteTransformHelper$8.class
 com\FinsTCP\core\net\NetworkBase.class
 com\FinsTCP\core\transfer\ByteTransformHelper$1.class
-com\log\HslMessageDegree.class
 com\FinsTCP\core\transfer\ByteTransformHelper$6.class
 com\FinsTCP\Protocol.class
 com\FinsTCP\core\net\AlienSession.class

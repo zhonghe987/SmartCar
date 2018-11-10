@@ -3,19 +3,16 @@ C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\transfer\DataFormat.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\util\OmronFinsNetHelper.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\StringResources.java
 C:\workspace\SmartCar\src\main\java\com\api\deserializer\CarInfoDeserializer.java
-C:\workspace\SmartCar\src\main\java\com\log\HslMessageItem.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\net\NetworkDoubleBase.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\types\FunctionOperateExOne.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\exceptions\SocketExhaustedPoolException.java
 C:\workspace\SmartCar\src\main\java\com\api\dao\CarInfoDao.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\omron\OmronFinsDataType.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\net\FinsMessage.java
-C:\workspace\SmartCar\src\main\java\com\log\HslMessageDegree.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\transfer\IByteTransform.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\transfer\ByteTransformHelper.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\Protocol.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\types\IDataTransfer.java
-C:\workspace\SmartCar\src\main\java\com\log\ILogNet.java
 C:\workspace\SmartCar\src\main\java\com\api\util\HibernateUtil.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\SocketClientFactory.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\Utilities.java
@@ -29,7 +26,6 @@ C:\workspace\SmartCar\src\main\java\com\FinsTCP\SocketPool.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\net\AlienSession.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\net\IReadWriteNet.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\exceptions\SocketException.java
-C:\workspace\SmartCar\src\main\java\com\log\GenerateMode.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\Pool.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\net\INetMessage.java
 C:\workspace\SmartCar\src\main\java\com\FinsTCP\core\types\HslTimeOut.java
