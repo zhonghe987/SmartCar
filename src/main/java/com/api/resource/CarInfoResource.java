@@ -19,7 +19,6 @@ import javax.ws.rs.core.Response;
 
 
 import com.FinsTCP.omron.OmronFinsNet;
-import com.api.util.*;
 
 import com.FinsTCP.SocketConfig;
 import com.FinsTCP.SocketPoolConfig;
@@ -49,7 +48,8 @@ public class CarInfoResource {
     @GET
     public String list() {
         OmronFinsNet omf = clientPool.getResource();
-        return gson.toJson(carInfoDao.findAll());
+        //return gson.toJson(carInfoDao.findAll());
+        return gson.toJson(omf.toString());
     }
     
     @GET
