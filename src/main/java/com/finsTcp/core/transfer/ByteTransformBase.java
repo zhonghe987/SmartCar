@@ -1,6 +1,6 @@
-package com.finsTcp.core.transfer;
+package com.FinsTCP.core.transfer;
 
-import com.finsTcp.Utilities;
+import com.FinsTCP.Utilities;
 
 
 

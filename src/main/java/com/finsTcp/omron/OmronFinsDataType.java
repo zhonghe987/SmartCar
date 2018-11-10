@@ -1,4 +1,4 @@
-package com.finsTcp.omron;
+package com.FinsTCP.omron;
 
 
 public class OmronFinsDataType {

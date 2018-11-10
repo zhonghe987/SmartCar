@@ -1,13 +1,13 @@
-package com.finsTcp.core.net;
+package com.FinsTCP.core.net;
 
-import com.finsTcp.core.SoftBasic;
-import com.finsTcp.core.net.INetMessage;
-import com.finsTcp.core.net.IReadWriteNet;
-import com.finsTcp.core.transfer.IByteTransform;
-import com.finsTcp.core.types.IDataTransfer;
-import com.finsTcp.core.types.OperateResult;
-import com.finsTcp.core.types.OperateResultExOne;
-import com.finsTcp.Utilities;
+import com.FinsTCP.core.SoftBasic;
+import com.FinsTCP.core.net.INetMessage;
+import com.FinsTCP.core.net.IReadWriteNet;
+import com.FinsTCP.core.transfer.IByteTransform;
+import com.FinsTCP.core.types.IDataTransfer;
+import com.FinsTCP.core.types.OperateResult;
+import com.FinsTCP.core.types.OperateResultExOne;
+import com.FinsTCP.Utilities;
 
 
 public class NetworkDeviceBase<TNetMessage extends INetMessage, TTransform extends IByteTransform>

@@ -1,4 +1,4 @@
-package com.finsTcp.core.net;
+package com.FinsTCP.core.net;
 
 import java.net.Socket;
 

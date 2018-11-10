@@ -1,8 +1,8 @@
-package com.finsTcp.core.net;
+package com.FinsTCP.core.net;
 
-import com.finsTcp.core.types.IDataTransfer;
-import com.finsTcp.core.types.OperateResult;
-import com.finsTcp.core.types.OperateResultExOne;
+import com.FinsTCP.core.types.IDataTransfer;
+import com.FinsTCP.core.types.OperateResult;
+import com.FinsTCP.core.types.OperateResultExOne;
 
 
 public interface IReadWriteNet {

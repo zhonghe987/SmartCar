@@ -1,7 +1,7 @@
-package com.finsTcp;
+package com.FinsTCP;
 
-import com.finsTcp.language.DefaultLanguage;
-import com.finsTcp.language.English;
+import com.FinsTCP.language.DefaultLanguage;
+import com.FinsTCP.language.English;
 import java.util.Locale;
 
 public class StringResources {

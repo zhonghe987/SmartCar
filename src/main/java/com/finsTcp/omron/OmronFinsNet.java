@@ -1,13 +1,13 @@
-package com.finsTcp.omron;
+package com.FinsTCP.omron;
 
-import com.finsTcp.core.net.FinsMessage;
-import com.finsTcp.core.net.NetworkDeviceBase;
-import com.finsTcp.core.transfer.ReverseWordTransform;
-import com.finsTcp.core.types.OperateResult;
-import com.finsTcp.core.types.OperateResultExOne;
-import com.finsTcp.core.types.OperateResultExTwo;
-import com.finsTcp.StringResources;
-import com.finsTcp.Utilities;
+import com.FinsTCP.core.net.FinsMessage;
+import com.FinsTCP.core.net.NetworkDeviceBase;
+import com.FinsTCP.core.transfer.ReverseWordTransform;
+import com.FinsTCP.core.types.OperateResult;
+import com.FinsTCP.core.types.OperateResultExOne;
+import com.FinsTCP.core.types.OperateResultExTwo;
+import com.FinsTCP.StringResources;
+import com.FinsTCP.Utilities;
 
 import java.net.Socket;
 
@@ -19,6 +19,7 @@ public class OmronFinsNet extends NetworkDeviceBase<FinsMessage, ReverseWordTran
 
 
     public OmronFinsNet(String ipAddress, int port) {
+        super();
         WordLength = 1;
         setIpAddress(ipAddress);
         setPort(port);

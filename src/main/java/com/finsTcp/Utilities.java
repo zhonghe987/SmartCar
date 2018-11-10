@@ -1,4 +1,4 @@
-package com.finsTcp;
+package com.FinsTCP;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

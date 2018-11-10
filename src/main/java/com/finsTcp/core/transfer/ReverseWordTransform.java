@@ -1,7 +1,7 @@
-package com.finsTcp.core.transfer;
+package com.FinsTCP.core.transfer;
 
-import com.finsTcp.core.SoftBasic;
-import com.finsTcp.Utilities;
+import com.FinsTCP.core.SoftBasic;
+import com.FinsTCP.Utilities;
 
 
 public class ReverseWordTransform extends ByteTransformBase {

@@ -1,4 +1,4 @@
-package com.finsTcp.language;
+package com.FinsTCP.language;
 
 /**
  * English Version Text

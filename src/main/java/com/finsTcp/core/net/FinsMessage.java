@@ -1,6 +1,6 @@
-package com.finsTcp.core.net;
+package com.FinsTCP.core.net;
 
-import com.finsTcp.Utilities;
+import com.FinsTCP.Utilities;
 
 public class FinsMessage implements INetMessage {
 

@@ -1,4 +1,4 @@
-package com.finsTcp.core.types;
+package com.FinsTCP.core.types;
 import java.net.Socket;
 import java.util.Date;
 

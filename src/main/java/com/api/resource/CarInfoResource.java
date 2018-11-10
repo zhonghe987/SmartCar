@@ -18,26 +18,26 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-import com.finsTcp.omron.*;
+import com.FinsTCP.omron.OmronFinsNet;
 import com.api.util.*;
+
+import com.FinsTCP.SocketConfig;
+import com.FinsTCP.SocketPoolConfig;
+import com.FinsTCP.SocketPool;
 
 @Path("car")
 @Produces(MediaType.APPLICATION_JSON)
 public class CarInfoResource {
-
-    private OmronFinsNet cfn_client;
-    private SocketPool sp;
-
-    //protected void getConnection(){
-    //    this.sp = SocketPool.getInstance();
-    //    this.sp.init(true);
-    //    this.cfn_client =  this.sp.getClient();
-
-    //}
-    //public MessageController(){
-    //    this.getConnection();
-
-    //}
+    private static volatile SocketPool clientPool = null;
+    private static SocketConfig socketConfig = new SocketConfig();
+    static {
+        try {
+            SocketPoolConfig SocketPoolConfig = new SocketPoolConfig();
+            clientPool = new SocketPool(SocketPoolConfig, socketConfig);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     private GsonBuilder builder = new GsonBuilder()
         .setPrettyPrinting()
@@ -48,6 +48,7 @@ public class CarInfoResource {
 
     @GET
     public String list() {
+        OmronFinsNet omf = clientPool.getResource();
         return gson.toJson(carInfoDao.findAll());
     }
     

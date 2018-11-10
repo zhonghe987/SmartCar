@@ -1,14 +1,14 @@
-package com.finsTcp.core.net;
+package com.FinsTCP.core.net;
 
-import com.finsTcp.core.SoftBasic;
-import com.finsTcp.core.net.INetMessage;
-import com.finsTcp.core.net.AlienSession;
-import com.finsTcp.core.transfer.ByteTransformHelper;
-import com.finsTcp.core.transfer.IByteTransform;
-import com.finsTcp.core.types.OperateResult;
-import com.finsTcp.core.types.OperateResultExOne;
-import com.finsTcp.core.types.OperateResultExTwo;
-import com.finsTcp.StringResources;
+import com.FinsTCP.core.SoftBasic;
+import com.FinsTCP.core.net.INetMessage;
+import com.FinsTCP.core.net.AlienSession;
+import com.FinsTCP.core.transfer.ByteTransformHelper;
+import com.FinsTCP.core.transfer.IByteTransform;
+import com.FinsTCP.core.types.OperateResult;
+import com.FinsTCP.core.types.OperateResultExOne;
+import com.FinsTCP.core.types.OperateResultExTwo;
+import com.FinsTCP.StringResources;
 
 import java.lang.reflect.ParameterizedType;
 import java.net.Socket;
@@ -126,8 +126,7 @@ public class NetworkDoubleBase<TNetMessage extends INetMessage, TTransform exten
         } else {
             CoreSocket = rSocket.Content;
             result.IsSuccess = true;
-            if (LogNet != null)
-                LogNet.WriteDebug(toString(), StringResources.Language.NetEngineStart());
+               
         }
 
         return result;
@@ -173,9 +172,6 @@ public class NetworkDoubleBase<TNetMessage extends INetMessage, TTransform exten
         CoreSocket = null;
 
         queueLock.unlock();
-
-        if (LogNet != null)
-            LogNet.WriteDebug(toString(), StringResources.Language.NetEngineClose());
         return result;
     }
 

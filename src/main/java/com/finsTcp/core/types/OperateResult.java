@@ -1,6 +1,6 @@
-package com.finsTcp.core.types;
+package com.FinsTCP.core.types;
 
-import com.finsTcp.StringResources;
+import com.FinsTCP.StringResources;
 
 
 public class OperateResult {

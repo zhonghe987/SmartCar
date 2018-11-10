@@ -1,4 +1,4 @@
-package com.finsTcp.core.transfer;
+package com.FinsTCP.core.transfer;
 
 public interface IByteTransform {
 

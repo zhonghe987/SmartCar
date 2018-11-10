@@ -1,8 +1,8 @@
-package com.finsTcp.core.transfer;
+package com.FinsTCP.core.transfer;
 
-import com.finsTcp.core.SoftBasic;
-import com.finsTcp.core.types.FunctionOperateExOne;
-import com.finsTcp.core.types.OperateResultExOne;
+import com.FinsTCP.core.SoftBasic;
+import com.FinsTCP.core.types.FunctionOperateExOne;
+import com.FinsTCP.core.types.OperateResultExOne;
 
 public class ByteTransformHelper {
 

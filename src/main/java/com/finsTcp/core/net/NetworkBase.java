@@ -1,12 +1,11 @@
-package com.finsTcp.core.net;
+package com.FinsTCP.core.net;
 
-import com.finsTcp.core.net.INetMessage;
-import com.finsTcp.core.types.HslTimeOut;
-import com.finsTcp.core.types.OperateResult;
-import com.finsTcp.core.types.OperateResultExOne;
-import com.log.ILogNet;
-import com.finsTcp.StringResources;
-import com.finsTcp.Utilities;
+import com.FinsTCP.core.net.INetMessage;
+import com.FinsTCP.core.types.HslTimeOut;
+import com.FinsTCP.core.types.OperateResult;
+import com.FinsTCP.core.types.OperateResultExOne;
+import com.FinsTCP.StringResources;
+import com.FinsTCP.Utilities;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -109,7 +108,6 @@ public abstract class NetworkBase {
         {
 
             CloseSocket(socket);
-            if(LogNet != null) LogNet.WriteError( toString( ), StringResources.Language.TokenCheckFailed() );
             resultExOne.Message = StringResources.Language.TokenCheckFailed();
             return resultExOne;
         }
@@ -228,13 +226,7 @@ public abstract class NetworkBase {
         }
     }
 
-
-
-    public ILogNet LogNet = null;
-
-
     public UUID Token = null;
-
 
 
     @Override

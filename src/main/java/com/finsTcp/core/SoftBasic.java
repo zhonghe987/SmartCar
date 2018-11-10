@@ -1,4 +1,4 @@
-package com.finsTcp.core;
+package com.FinsTCP.core;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
