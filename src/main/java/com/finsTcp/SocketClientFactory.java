@@ -68,7 +68,7 @@ public class SocketClientFactory implements PooledObjectFactory<OmronFinsNet> {
     public boolean validateObject(PooledObject<OmronFinsNet> pooledObject) {
         try {
             OmronFinsNet ofnClient = (OmronFinsNet) pooledObject.getObject();
-            return ofnClient.getClosed();
+            return ofnClient.ConnectServer().IsSuccess;
         } catch (Exception ex) {
             return false;
         }

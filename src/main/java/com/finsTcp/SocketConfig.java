@@ -2,6 +2,7 @@ package com.FinsTCP;
 
 import java.io.InputStream;
 import java.util.Properties;
+import com.FinsTCP.util.OmronFinsNetHelper;
 
 public class SocketConfig{
     private String host = "127.0.0.1";
@@ -50,6 +51,7 @@ public class SocketConfig{
     }
 
     public byte getDA1(){
+        this.DA1 = OmronFinsNetHelper.HexStringToBytes(pp.getProperty("plc_da1")).;
         return this.DA1;
     }
 

@@ -1,6 +1,10 @@
 package com.FinsTCP.util;
 
+import java.io.ByteArrayOutputStream;
 import java.lang.String;
+import java.util.Arrays;
+import java.util.List;
+import java.io.IOException;
 
 public  final class OmronFinsNetHelper{
 
@@ -37,7 +41,29 @@ public  final class OmronFinsNetHelper{
         return strHex;
     }
 
-    public static byte stringToByte(String hexs){
-        return 0;
+    private static List<Character> hexCharList = Arrays.asList('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
+            'B', 'C', 'D', 'E', 'F');
+
+    public static byte[] HexStringToBytes(String hex) {
+        hex = hex.toUpperCase();
+
+        ByteArrayOutputStream ms = new ByteArrayOutputStream();
+
+        for (int i = 0; i < hex.length(); i++) {
+            if ((i + 1) < hex.length()) {
+                if (hexCharList.contains(hex.charAt(i)) && hexCharList.contains(hex.charAt(i + 1))) {
+                    ms.write((byte) (hexCharList.indexOf(hex.charAt(i)) * 16 + hexCharList.indexOf(hex.charAt(i + 1))));
+                    i++;
+                }
+            }
+        }
+
+        byte[] result = ms.toByteArray();
+        try {
+            ms.close();
+        } catch (IOException ex) {
+
+        }
+        return result;
     }
 }
